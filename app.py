@@ -1,4 +1,8 @@
 from flask import Flask
+from flask import render_template 
+
+
+app = Flask(__name__)
 
 
 def encrypt():
@@ -9,11 +13,12 @@ def decrypt():
     pass
 
 
-app = Flask(__name__)
 
 
-@app.route("/home")
-pass
+
+@app.route("/")
+def page():
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
