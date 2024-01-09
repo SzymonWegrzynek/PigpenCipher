@@ -13,9 +13,6 @@ def decrypt():
     pass
 
 
-
-
-
 @app.route("/")
 def page():
     return render_template('index.html')
