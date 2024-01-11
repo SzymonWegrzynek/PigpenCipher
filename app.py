@@ -1,5 +1,3 @@
-from main import encrypt
-from main import decrypt
 from flask import Flask
 from flask import render_template 
 

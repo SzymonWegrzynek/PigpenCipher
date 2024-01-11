@@ -2,20 +2,25 @@ enc = ['a', 'ą', 'b', 'c', 'ć', 'd', 'e', 'ę', 'f', 'g', 'h', 'i', 'j', 'k', 
 dec = ['⁅', '⁆', '<', '>', '⌈', '⌉', '«', '»', '⌊', '⌋', '⟨', '⟩', '⟦', '⟧', '⟪', '⟫', '⟬', '⟭', '‡', '¶', '⁋', '⁕', '‣', '⁌', '⁜', '※', '♪', '✕', '⌀', '⏕', '⏔', '⁒', '‽', '⸘']
 
 
-key = int(input())
-
-
 def encrypt(text):
-    text = text.lower()
-    text = ""
-    key_for_enc = (key // (key * 8))**2 
+    text = str(text.lower())
+    pigpen_text = ""
+    # key_for_enc = (key // (key * 8))**2 
     for i in text:
-        if (ord(i) - key_for_enc < 98):
-            text += chr(ord(i) - key_for_enc + key)
+        if i in dec:
+            pigpen_text += enc[dec.index(i)]
         else:
-            text += chr(ord(text) - key_for_enc)
+            pigpen_text += i
+    return pigpen_text
+
+
+def decrypt(pigpen_text):
+    pigpen_text = str(pigpen_text.lower())
+    text = ""
+    # key_for_enc = (key // (key * 8))**2 
+    for i in pigpen_text:
+        if i in enc:
+            text += dec[enc.index(i)]
+        else:
+            text += i
     return text
-
-
-def decrypt():
-    pass
