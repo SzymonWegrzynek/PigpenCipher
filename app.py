@@ -10,22 +10,22 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template("index.html")
 
 
 @app.post("/enc")
 def enc():
-    key = request.form["key"]
+    key = int(request.form["key"])
     text = request.form["text"]
-    pigpen_text = encrypt(text)
+    pigpen_text = encrypt(text, key)
     return pigpen_text
 
 
 @app.post("/dec")
 def dec():
-    key = request.form["key"]
+    key = int(request.form["key"])
     pigpen_text = request.form["pigpen_text"]
-    text = decrypt(pigpen_text)
+    text = decrypt(pigpen_text, key)
     return text
 
 

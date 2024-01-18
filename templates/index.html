@@ -14,14 +14,18 @@
   </head>
   <body>
     <h1>Pigpen Cipher</h1>
-    <form action="/enc">
-      <input type="text" placeholder="Enter key (integer)" />
-      <input type="text" id="" placeholder="Paste your text to encrypt" />
+    <form action="/enc" method="post">
+      <input type="text" name="key" placeholder="Enter key (integer)" />
+      <input type="text" name="text" placeholder="Paste your text to encrypt" />
       <button type="submit">Zaszyfruj</button>
     </form>
-    <form action="/dec">
-      <input type="text" placeholder="Enter key (integer)" />
-      <input type="text" placeholder="Paste your text to decrypt" />
+    <form action="/dec" method="post">
+      <input type="text" name="key" placeholder="Enter key (integer)" />
+      <input
+        type="text"
+        name="pigpen_text"
+        placeholder="Paste your text to decrypt"
+      />
       <button type="submit">Odszyfruj</button>
     </form>
   </body>
